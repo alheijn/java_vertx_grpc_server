@@ -7,20 +7,14 @@ import com.ecommerce.ordermanagement.OrderManagementService;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.grpc.server.GrpcServer;
 import java.util.logging.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
-@Component
 public class VertxGrpcServer extends AbstractVerticle {
 
     private static final Logger logger = Logger.getLogger(VertxGrpcServer.class.getName());
 
-    @Autowired
     OrderManagementServiceImpl service;
 
-    @Value("${grpc.server.port}")
-    private int port;
+    private final int port = 9090;
 
     @Override
     public void start() throws Exception {
